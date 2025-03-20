@@ -11,7 +11,13 @@ namespace PracticaMvcCore2DAMT.Repositories
         {
             this.context = context;
         }
-
+        public async Task<List<VistaPedido>> VistaPedidosUsuarioAsync
+            (int idUsuario)
+        {
+            return await this.context.VistaPedidos
+                .Where(x => x.IdUsuario == idUsuario)
+                .ToListAsync();
+        }
         public async Task FinalizarCompraAsync
             (List<int> idsLibros, int idUsuario)
         {
