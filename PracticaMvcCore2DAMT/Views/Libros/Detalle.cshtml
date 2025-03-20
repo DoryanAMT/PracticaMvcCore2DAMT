@@ -1,0 +1,18 @@
+﻿@model Libro
+
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="~/images/@Model.Portada" alt="Card image cap" style="width:150px;height:100px">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Titulo</h5>
+        @* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> *@
+        <a asp-controller="Libros"
+           asp-action="Detalle"
+           asp-route-idLibro="@Model.IdLibro"
+           asp-route-agregarCarrito="@Model.IdLibro"
+           class="btn btn-primary">
+            Agregar Carrito
+        </a>
+    </div>
+</div>
+

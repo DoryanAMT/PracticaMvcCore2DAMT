@@ -1,0 +1,28 @@
+﻿@model List<Libro>
+<h1>Carrito</h1>
+
+<a asp-controller="Libros"
+   asp-action="FinalizarCompra"
+class="btn btn-success">
+Finalizar Compra</a>
+
+@if(Model != null){
+    @foreach (Libro libro in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="~/images/@libro.Portada" alt="Card image cap" style="width:150px;height:100px">
+            <div class="card-body">
+                <h5 class="card-title">@libro.Titulo</h5>
+                @* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> *@
+                <a asp-controller="Libros"
+                   asp-action="Carrito"
+                   asp-route-idLibroEliminar="@libro.IdLibro"
+                   class="btn btn-danger">
+                    Eliminar
+                </a>
+            </div>
+        </div>
+    }
+}else{
+    <h1>@ViewData["MENSAJE"]</h1>
+}
